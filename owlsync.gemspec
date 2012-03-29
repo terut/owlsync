@@ -7,9 +7,9 @@ Gem::Specification.new do |s|
   s.version     = Owlsync::VERSION
   s.authors     = ["terut"]
   s.email       = ["terut.dev+github@gmail.com"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.homepage    = "https://github.com/terut/owlsync"
+  s.summary     = %q{The Mirroring Daemon for Auto Scaling}
+  s.description = %q{Owlsync is an easy configure, easy to rsync source written in Ruby.}
 
   s.rubyforge_project = "owlsync"
 
