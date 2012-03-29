@@ -4,5 +4,6 @@
 .bundle
 Gemfile.lock
 pkg/*
+pids
 vendor
 config

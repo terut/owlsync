@@ -3,12 +3,13 @@ require 'daemons'
 module Owlsync
   class Server
     def initialize(args = nil)
-      @options = { pid_dir: 'tmp/pids' }
+      @options = { pid_dir: 'pids' }
       @args = args
     end 
     
     def daemonize
       dir = @options[:pid_dir]
+      Dir.mkdir(dir) unless File.exists?(dir)
 
       process_name = 'owlsync'
       run_process(process_name, dir)
