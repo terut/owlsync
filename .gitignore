@@ -1,0 +1,8 @@
+*.swp
+*.gem
+*.log
+.bundle
+Gemfile.lock
+pkg/*
+vendor
+config

@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require "owlsync"
+
+begin
+  require './config/owlsync.rb'
+rescue LoadError
+  puts "Could not find config/owlsync.rb."
+end
+
+Owlsync::Server.new(ARGV).daemonize
