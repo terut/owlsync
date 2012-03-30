@@ -19,7 +19,7 @@ module Owlsync
       end
 
       def target?(instance)
-        instance.tags['aws:autoscaling:groupName'] == tag
+        instance.tags[tag[:key]] == tag[:value]
       end
     end
   end

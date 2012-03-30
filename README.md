@@ -55,7 +55,7 @@ Owlsync.configure do |config|
   config.worker_options= { access_key_id: 'ACCESS_KEY_ID',
                            secret_access_key: 'SECRET_ACCESS_KEY',
                            ec2_endpoint: 'ec2.us-east-1.amazonaws.com',
-                           tag: 'foobar' }
+                           tag: { key: 'Name', value: 'foobar' } }
 end
 ```
 
@@ -69,7 +69,7 @@ EC2:
 - `worker_type` - *:ec2*
 - `worker_options` - *:access_key_id*, *:secret_access_key*, *:ec2_endpoint*, *:tag*
 
-`:tag` - autoscaling tag value. ec2 stratery search *aws:autoscaling:groupName* key.
+`:tag` - autoscaling tag key and value. For example, ec2 stratery search *aws:autoscaling:groupName* key.
 
 FIXED:
 
