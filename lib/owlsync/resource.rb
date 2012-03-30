@@ -19,14 +19,15 @@ module Owlsync
     end
 
     def rsync
-      now = Time.now.strftime('%Y-%m-%d %H:%M:%S')
-      unless updated?
-        cmd = "rsync #{rsync_options} -e 'ssh -i #{identityfile}' #{source_path} #{user_name}@#{dns_name}:#{release_path}"
-        self.updated = system(cmd)
+      return if updated?
 
-        $stdout.puts "[#{now}]: #{cmd}"
+      now = Time.now.strftime('%Y-%m-%d %H:%M:%S')
+      cmd = "rsync #{rsync_options} -e 'ssh -i #{identityfile} -o StrictHostKeyChecking=no' #{source_path} #{user_name}@#{dns_name}:#{release_path}"
+
+      if self.updated = system(cmd)
+        $stdout.puts "[#{now}]: #{cmd}."
       else
-        $stdout.puts "[#{now}]: Already updated."
+        $stderr.puts "[#{now}][Failed]: #{cmd}."
       end
     rescue => e
       $stderr.puts "[#{now}][Error]: #{e}"
